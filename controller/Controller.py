@@ -1,32 +1,6 @@
 import os
 from time import sleep
-from model import clients, comandes, productes
-
-def modificar_comanda(self, nom=None, raca=None, territori=None, caracteristiques=None):
-    if nom:
-        self.nom = nom
-    if raca:
-        self.raca = raca
-    if territori:
-        self.territori = territori
-    if caracteristiques:
-        self.caracteristiques = caracteristiques
-
-
-def __str__(self):
-    return f"Nom: {self.nom}, Raça: {self.raca}, Territori: {self.territori}, Característiques: {self.caracteristiques}"
-
-
-def llistar_comandes(self):
-    if not self.llista_clients:
-        print("No hi ha personatges creats.")
-        sleep(2)
-        os.system("clear")
-    else:
-        for personatge in self.llista_clients:
-            print(personatge)
-        input("Prem enter per continuar: ")
-
+from model import Clients, Comandes, Productes
 
 def crear_personatge(self):
     os.system("clear")
@@ -54,6 +28,32 @@ def crear_personatge(self):
     self.llista_clients.append(personatge)
     print("Personatge creat amb èxit.")
     sleep(2)
+
+
+def modificar_comanda(self, nom=None, raca=None, territori=None, caracteristiques=None):
+    if nom:
+        self.nom = nom
+    if raca:
+        self.raca = raca
+    if territori:
+        self.territori = territori
+    if caracteristiques:
+        self.caracteristiques = caracteristiques
+
+
+def __str__(self):
+    return f"Nom: {self.nom}, Raça: {self.raca}, Territori: {self.territori}, Característiques: {self.caracteristiques}"
+
+
+def llistar_comandes(self):
+    if not self.llista_clients:
+        print("No hi ha personatges creats.")
+        sleep(2)
+        os.system("clear")
+    else:
+        for personatge in self.llista_clients:
+            print(personatge)
+        input("Prem enter per continuar: ")
 
 
 def modificar_personatge(self):

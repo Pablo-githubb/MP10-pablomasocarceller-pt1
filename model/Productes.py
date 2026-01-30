@@ -7,5 +7,3 @@ class Productes:
     def __str__(self):
         return f"{self.llista_clients}\n{self.llista_productes}"
 
-productes = Productes()
-print(productes)
