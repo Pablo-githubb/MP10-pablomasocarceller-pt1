@@ -45,15 +45,7 @@ def __str__(self):
     return f"Nom: {self.nom}, Raça: {self.raca}, Territori: {self.territori}, Característiques: {self.caracteristiques}"
 
 
-def llistar_comandes(self):
-    if not self.llista_clients:
-        print("No hi ha personatges creats.")
-        sleep(2)
-        os.system("clear")
-    else:
-        for personatge in self.llista_clients:
-            print(personatge)
-        input("Prem enter per continuar: ")
+
 
 
 def modificar_personatge(self):

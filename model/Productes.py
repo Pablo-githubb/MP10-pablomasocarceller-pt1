@@ -1,9 +1,13 @@
 class Productes:
-    def __init__(self):
-        self.llista_clients = ['Anna', 'Pere', 'Joan']
-        self.llista_productes = ['bicileta', 'casc', 'guants', 'maillot,', 'roda']
+    def __init__(self, nom_producte):
+        self.nom_producte = nom_producte
+        self.llistat_productes = []
 
 
-    def __str__(self):
-        return f"{self.llista_clients}\n{self.llista_productes}"
+    def llistarProductes(self):
+        return self.llistat_productes
+
+
+    def afegirProducte(self, nou_producte):
+        self.llistat_productes.append(nou_producte)
 
