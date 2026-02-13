@@ -1,13 +1,7 @@
 class Productes:
-    def __init__(self, nom_producte):
+    nom_producte = ""
+    preu = 0.0
+
+    def __init__(self, nom_producte, preu):
         self.nom_producte = nom_producte
-        self.llistat_productes = []
-
-
-    def llistarProductes(self):
-        return self.llistat_productes
-
-
-    def afegirProducte(self, nou_producte):
-        self.llistat_productes.append(nou_producte)
-
+        self.preu = preu

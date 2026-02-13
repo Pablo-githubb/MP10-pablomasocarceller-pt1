@@ -1,10 +1,29 @@
+from model import Productes
+
+
+class Linia:
+    quantitat = 1
+    producte = None
+    total = 0
+
+    def __init__(self, quantitat, productes, total):
+        self.quantitat = quantitat
+        self.productes = productes
+        self.total = total
+
+    def get_a(self):
+        return self.__a
+
+    def set_a(self, a):
+        self.__a = a
+
+
 class Comandes:
-    def __init__(self, id_comanda, estat_comanda):
+    linia = []
+    id_comanda = 0
+    isEnviada = False
+
+    def __init__(self, id_comanda, linia: list[Linia], isEnviada):
         self.id_comanda = id_comanda
-        self.quantitat_comanda = 0
-        self.estat_comanda = estat_comanda
-        self.llista_comandes = []
-
-    def gestorComandes(self, ):
-        self.llista_comandes = {'bicileta': 1, 'casc': 2, 'guants': 1, 'maillot': 1, 'roda': 2}
-
+        self.linia = linia
+        self.isEnviada = isEnviada
