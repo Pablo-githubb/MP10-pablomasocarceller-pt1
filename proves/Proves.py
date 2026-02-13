@@ -1,5 +1,5 @@
-from model.Clients import Clients
-from model.Productes import Productes
+from gestio_erp.model.Clients import Clients
+from gestio_erp.model.Productes import Productes
 
 
 def entorn_proves():

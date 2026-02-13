@@ -1,11 +1,10 @@
-from model import Comandes
-
+from gestio_erp.model.Comanda import Comanda
 
 class Clients:
     id_client = None
     nom = ""
     correu = ""
-    llista_comandes = list[Comandes]
+    llista_comandes = list[Comanda]
 
     def __init__(self, id_client, nom, correu, llista_comandes: list[Comandes]):
         self.id_client = id_client
