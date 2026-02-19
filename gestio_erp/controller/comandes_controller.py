@@ -20,7 +20,7 @@ def llistar_comandes(client: Clients):
         return
 
     for comanda in client.llista_comandes:
-        print(f"Comanda {comanda.id_comanda} {comanda.estat} : {comanda.linia}")
+        print(f"Comanda {comanda.id_comanda} [{comanda.estat}]: {comanda.linia}\n")
 
 
 def modificar_estat_comanda(comanda: Comanda) -> bool:
