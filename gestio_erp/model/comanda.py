@@ -3,9 +3,9 @@ class Linia:
     quantitat = 1
     total = 0
 
-    def __init__(self, quantitat, producte, total):
-        self.quantitat = quantitat
+    def __init__(self, producte, quantitat, total):
         self.producte = producte
+        self.quantitat = quantitat
         self.total = total
 
     def __repr__(self):

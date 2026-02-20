@@ -15,14 +15,14 @@ def crear_client(nou_id: int, nou_nom: str, nou_correu: str, nova_llista: list[C
     return nou_client
 
 
-def afegir_comanda(linia: list[Linia], id_comanda: int, estat: str):
+def afegir_comanda(id_comanda: int, linia: list[Linia], estat: str):
     if not isinstance(linia, list):
         raise ValueError("La línia proporcionada no és vàlida. S'espera una llista d'objectes Linia.")
     elif not isinstance(id_comanda, int):
         raise ValueError(f"El id introduït: {id_comanda}, no es vàlid")
     elif not isinstance(estat, str):
         raise ValueError(f"L'estat es incorrecte")
-    nova_comanda = Comanda(linia, id_comanda, estat)
+    nova_comanda = Comanda(id_comanda, linia, estat)
     return nova_comanda
 
 
