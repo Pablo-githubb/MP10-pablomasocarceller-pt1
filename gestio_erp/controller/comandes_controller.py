@@ -1,9 +1,11 @@
 from gestio_erp.model.clients import Clients
 from gestio_erp.model.comanda import Comanda, Linia
+from gestio_erp.model.productes import Productes
 
 
 def crear_comanda(id_comanda: int, estat: str, client: Clients):
     nova_comanda = Comanda(id_comanda, [], estat)
+    # Gestó d'errors None
     if nova_comanda is None:
         return None
     client.llista_comandes.append(nova_comanda)
@@ -65,6 +67,7 @@ def modificar_quantitat(comanda: Comanda, nom_producte: str, nova_quantitat: int
 
     # Buscar el producte a la comanda
     producte_trobat = False
+    # Gestió d'errors fins que trobe el producte a modificar
     for linia in comanda.linia:
         if linia.producte == nom_producte:
             linia.quantitat = nova_quantitat

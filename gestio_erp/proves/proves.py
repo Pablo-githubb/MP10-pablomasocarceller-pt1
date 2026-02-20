@@ -1,5 +1,5 @@
 from gestio_erp.controller import comandes_controller, producte_controller, clients_controller
-from gestio_erp.model.clients import Clients
+from gestio_erp.model.comanda import Linia
 from gestio_erp.model.productes import Productes
 
 
@@ -10,7 +10,6 @@ def entorn_proves():
     anna = clients_controller.crear_client("Anna", 10, "ana@gmail.com", [])
     pere = clients_controller.crear_client("Pere", 20, "pere@gmail.com", [])
     joan = clients_controller.crear_client("Joan", 30, "joan@gmail.com", [])
-
 
     # Crear comandes per Anna
     comanda_101 = comandes_controller.crear_comanda(101, "Pendent", anna)
@@ -39,12 +38,12 @@ def entorn_proves():
     try:
         comandes_controller.afegir_producte(comanda_101, "bicicleta", 1)  # Ja existeix
     except ValueError as e:
-        print(f"Error: {e}\n")
+        print(f"Error: {e}")
 
     try:
-        patinet = Productes("patinet", 1)
+        patinet = Linia("patinet", 1, 1)
         producte_controller.llistar_productes(patinet)  # No existeix
-    #Tractament de AttributeError i ValueError per si la comanda es inicialitzada en None o amb un altre caràcter
+    # Tractament de AttributeError i ValueError per si la comanda s'inicialitza en None o amb un altre caràcter
     except (AttributeError, ValueError) as e:
         print(f"Error: {e}\n")
 
