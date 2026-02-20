@@ -5,8 +5,9 @@ from gestio_erp.model.comanda import Comanda, Linia
 def crear_comanda(id_comanda: int, estat: str, client: Clients):
     nova_comanda = Comanda(id_comanda, [], estat)
     if nova_comanda is None:
-        return
+        return None
     client.llista_comandes.append(nova_comanda)
+    return nova_comanda
 
 
 def llistar_comandes(client: Clients):
@@ -21,7 +22,7 @@ def llistar_comandes(client: Clients):
         return
 
     for comanda in client.llista_comandes:
-        print(f"Comanda {comanda.id_comanda} [{comanda.estat}]: {comanda.linia}\n")
+        print(f"Comanda {comanda.id_comanda} [{comanda.estat}]: {comanda.linia}")
 
 
 def modificar_estat_comanda(estat: str, comanda: Comanda) -> bool:
@@ -36,8 +37,10 @@ def modificar_estat_comanda(estat: str, comanda: Comanda) -> bool:
     return True
 
 
-def afegir_producte(comanda : Comanda, nou_producte, quantitat_producte : int):
+def afegir_producte(comanda: Comanda, nou_producte: str, quantitat_producte: int):
     # Gestió d'errors None
+    if comanda is None:
+        raise ValueError("La comanda no pot ser null")
     if nou_producte is None:
         raise ValueError(f"El nou producte {nou_producte} no pot ser null")
 
@@ -51,12 +54,22 @@ def afegir_producte(comanda : Comanda, nou_producte, quantitat_producte : int):
     comanda.linia.append(nova_linia)
 
 
-def modificar_quantitat(id_comanda : Comanda, producte : Linia, nova_quantiat: int):
-    # Gestió d'errors per quanitat incorrecta
-    if not isinstance(nova_quantiat, int):
+def modificar_quantitat(comanda: Comanda, nom_producte: str, nova_quantitat: int):
+    # Gestió d'errors per quantitat incorrecta
+    if not isinstance(nova_quantitat, int):
         raise ValueError("La quantitat introduïda es incorrecta, s'espera un enter.")
-    # Gestió d'error per línia None
-    if producte is None:
-        raise ValueError("El producte no pot ser null")
-    producte.quantitat = nova_quantiat
-    producte.total = nova_quantiat
+
+    # Gestió d'error per comanda None
+    if comanda is None:
+        raise ValueError("La comanda no pot ser null")
+
+    # Buscar el producte a la comanda
+    producte_trobat = False
+    for linia in comanda.linia:
+        if linia.producte == nom_producte:
+            linia.quantitat = nova_quantitat
+            linia.total = nova_quantitat
+            producte_trobat = True
+            break
+    if not producte_trobat:
+        raise ValueError(f"El producte {nom_producte} no existeix a la comanda")

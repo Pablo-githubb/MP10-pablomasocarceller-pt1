@@ -13,7 +13,7 @@ class Linia:
 
 
 class Comanda:
-    linia = []
+    linia = list[Linia]
     id_comanda = 0
     estat = "Pendent"
 

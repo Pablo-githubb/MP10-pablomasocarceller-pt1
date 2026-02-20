@@ -7,8 +7,8 @@ class Clients:
     correu = ""
     llista_comandes = list[Comanda]
 
-    def __init__(self, nom, id_client, correu, llista_comandes: list[Comanda]):
-        self.nom = nom
+    def __init__(self,id_client, nom, correu, llista_comandes: list[Comanda]):
         self.id_client = id_client
+        self.nom = nom
         self.correu = correu
         self.llista_comandes = llista_comandes
