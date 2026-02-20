@@ -17,6 +17,6 @@ def llistar_productes(buscador: Linia):
             producte_trobat = True
             break
     if not producte_trobat:
-        raise ValueError(f"El producte {buscador.producte} no existeix a la comanda")
+        print(f"El producte {buscador.producte} no existeix a la comanda\n")
 
     return productes.productes

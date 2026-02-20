@@ -49,7 +49,7 @@ def afegir_producte(comanda: Comanda, nou_producte: str, quantitat_producte: int
     # Gestió d'error per si el producte ja existeix a la comanda
     for l in comanda.linia:
         if l.producte == nou_producte:
-            raise ValueError(f"El producte {nou_producte} ja existeix a la comanda")
+            print(f"El producte {nou_producte} ja existeix a la comanda")
 
     # Creem nova línia i l'afegim
     nova_linia = Linia(producte=nou_producte, quantitat=quantitat_producte, total=quantitat_producte)
@@ -67,7 +67,7 @@ def modificar_quantitat(comanda: Comanda, nom_producte: str, nova_quantitat: int
 
     # Buscar el producte a la comanda
     producte_trobat = False
-    # Gestió d'errors fins que trobe el producte a modificar
+    # Gestió d'errors fins que trobi el producte a modificar
     for linia in comanda.linia:
         if linia.producte == nom_producte:
             linia.quantitat = nova_quantitat
@@ -75,4 +75,4 @@ def modificar_quantitat(comanda: Comanda, nom_producte: str, nova_quantitat: int
             producte_trobat = True
             break
     if not producte_trobat:
-        raise ValueError(f"El producte {nom_producte} no existeix a la comanda")
+        print(f"El producte {nom_producte} no existeix a la comanda")
